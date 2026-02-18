@@ -48,7 +48,13 @@ func NewHTTPProvider(apiKey, apiBase, proxy string) *HTTPProvider {
 	}
 }
 
-func (p *HTTPProvider) Chat(ctx context.Context, messages []Message, tools []ToolDefinition, model string, options map[string]interface{}) (*LLMResponse, error) {
+func (p *HTTPProvider) Chat(
+	ctx context.Context,
+	messages []Message,
+	tools []ToolDefinition,
+	model string,
+	options map[string]interface{},
+) (*LLMResponse, error) {
 	if p.apiBase == "" {
 		return nil, fmt.Errorf("API base not configured")
 	}
@@ -95,7 +101,12 @@ func (p *HTTPProvider) Chat(ctx context.Context, messages []Message, tools []Too
 		return nil, fmt.Errorf("failed to marshal request: %w", err)
 	}
 
-	req, err := http.NewRequestWithContext(ctx, "POST", p.apiBase+"/chat/completions", bytes.NewReader(jsonData))
+	apiPath := "/chat/completions"
+	if strings.Contains(p.apiBase, "chat.shou.edu.cn") {
+		apiPath = "/api/chat/completions"
+	}
+
+	req, err := http.NewRequestWithContext(ctx, "POST", p.apiBase+apiPath, bytes.NewReader(jsonData))
 	if err != nil {
 		return nil, fmt.Errorf("failed to create request: %w", err)
 	}
@@ -109,7 +120,11 @@ func (p *HTTPProvider) Chat(ctx context.Context, messages []Message, tools []Too
 	if err != nil {
 		return nil, fmt.Errorf("failed to send request: %w", err)
 	}
-	defer resp.Body.Close()
+	defer func(Body io.ReadCloser) {
+		_e := Body.Close()
+		if _e != nil {
+		}
+	}(resp.Body)
 
 	body, err := io.ReadAll(resp.Body)
 	if err != nil {

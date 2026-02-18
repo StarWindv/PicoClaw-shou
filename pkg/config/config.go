@@ -179,13 +179,16 @@ type ProvidersConfig struct {
 	ShengSuanYun  ProviderConfig `json:"shengsuanyun"`
 	DeepSeek      ProviderConfig `json:"deepseek"`
 	GitHubCopilot ProviderConfig `json:"github_copilot"`
+	SHOU          ProviderConfig `json:"shou"`
 }
 
 type ProviderConfig struct {
-	APIKey      string `json:"api_key" env:"PICOCLAW_PROVIDERS_{{.Name}}_API_KEY"`
-	APIBase     string `json:"api_base" env:"PICOCLAW_PROVIDERS_{{.Name}}_API_BASE"`
-	Proxy       string `json:"proxy,omitempty" env:"PICOCLAW_PROVIDERS_{{.Name}}_PROXY"`
-	AuthMethod  string `json:"auth_method,omitempty" env:"PICOCLAW_PROVIDERS_{{.Name}}_AUTH_METHOD"`
+	APIKey      string `json:"api_key"                env:"PICOCLAW_PROVIDERS_{{.Name}}_API_KEY"`
+	APIBase     string `json:"api_base"               env:"PICOCLAW_PROVIDERS_{{.Name}}_API_BASE"`
+	Student     string `json:"student_id"             env:"PICOCLAW_PROVIDERS_{{.Name}}_STUDENT_ID"`
+	PASSWORD    string `json:"password"               env:"PICOCLAW_PROVIDERS_{{.Name}}_PASSWORD"`
+	Proxy       string `json:"proxy,omitempty"        env:"PICOCLAW_PROVIDERS_{{.Name}}_PROXY"`
+	AuthMethod  string `json:"auth_method,omitempty"  env:"PICOCLAW_PROVIDERS_{{.Name}}_AUTH_METHOD"`
 	ConnectMode string `json:"connect_mode,omitempty" env:"PICOCLAW_PROVIDERS_{{.Name}}_CONNECT_MODE"` //only for Github Copilot, `stdio` or `grpc`
 }
 
@@ -304,6 +307,7 @@ func DefaultConfig() *Config {
 			Nvidia:       ProviderConfig{},
 			Moonshot:     ProviderConfig{},
 			ShengSuanYun: ProviderConfig{},
+			SHOU:         ProviderConfig{},
 		},
 		Gateway: GatewayConfig{
 			Host: "0.0.0.0",
