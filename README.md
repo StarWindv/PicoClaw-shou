@@ -1,3 +1,10 @@
+此仓库新增了非官方的
+<br>对上海海洋大学AIAPI的支持
+<br>并包括有全自动续期 JWT 的功能
+<br>此项目为个人修改
+<br>相关责任和`上海海洋大学`与[PicoClaw](https://github.com/sipeed/picoclaw)官方并无其它关系
+
+
 <div align="center">
   <img src="assets/logo.jpg" alt="PicoClaw" width="512">
 
