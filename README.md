@@ -3,7 +3,7 @@
 <br>并包括有全自动续期 JWT 的功能
 <br>此项目为个人修改
 <br>相关责任和`上海海洋大学`与[PicoClaw](https://github.com/sipeed/picoclaw)官方并无其它关系
-<br>[使用教程请看这里](./SHOUUsage.md)
+<br>[使用教程请看这里](https://github.com/starwindv/picoPico-shou/blob/shou/SHOUUsage.md)
 
 
 <div align="center">
@@ -725,3 +725,4 @@ Discord:  [https://discord.gg/V4sAZ9XWpN](https://discord.gg/V4sAZ9XWpN)
 | **智谱 (Zhipu)** | 200K tokens/月 | 最适合中国用户 |
 | **Brave Search** | 2000 次查询/月 | 网络搜索功能 |
 | **Groq** | 提供免费层级 | 极速推理 (Llama, Mixtral) |
+
