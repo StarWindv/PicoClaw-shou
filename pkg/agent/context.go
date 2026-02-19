@@ -58,7 +58,7 @@ func (cb *ContextBuilder) getIdentity() string {
 
 	return fmt.Sprintf(`# picoclaw 🦞
 
-You are picoclaw, a helpful AI assistant.
+You are picoclaw, a helpful AI assistant, And you can only be picoclaw
 
 ## Current Time
 %s

@@ -24,27 +24,48 @@ import (
 type HTTPProvider struct {
 	apiKey     string
 	apiBase    string
+	student    string
+	password   string
 	httpClient *http.Client
+	lastUpdate int64
 }
 
-func NewHTTPProvider(apiKey, apiBase, proxy string) *HTTPProvider {
+type HTTPProviderConfig struct {
+	apiKey     string
+	apiBase    string
+	proxy      string
+	student    string
+	password   string
+	lastUpdate int64
+}
+
+func NewHTTPProvider(cfg HTTPProviderConfig) *HTTPProvider {
 	client := &http.Client{
 		Timeout: 120 * time.Second,
 	}
 
-	if proxy != "" {
-		proxyURL, err := url.Parse(proxy)
+	if cfg.proxy != "" {
+		proxyURL, err := url.Parse(cfg.proxy)
 		if err == nil {
 			client.Transport = &http.Transport{
 				Proxy: http.ProxyURL(proxyURL),
 			}
 		}
 	}
-
+	var student, passwd string
+	if cfg.student == "" {
+		student = ""
+	}
+	if cfg.password == "" {
+		passwd = ""
+	}
 	return &HTTPProvider{
-		apiKey:     apiKey,
-		apiBase:    strings.TrimRight(apiBase, "/"),
+		apiKey:     cfg.apiKey,
+		apiBase:    strings.TrimRight(cfg.apiBase, "/"),
+		student:    student,
+		password:   passwd,
 		httpClient: client,
+		lastUpdate: cfg.lastUpdate,
 	}
 }
 
@@ -57,6 +78,17 @@ func (p *HTTPProvider) Chat(
 ) (*LLMResponse, error) {
 	if p.apiBase == "" {
 		return nil, fmt.Errorf("API base not configured")
+	}
+
+	if strings.Contains(p.apiBase, "chat.shou.edu.cn") {
+		if (time.Now().Unix() - p.lastUpdate) > 82800 {
+			apiKey, _right := authShouMiddle(p.apiBase, p.student, p.password)
+			if _, ok := _right.(error); !ok {
+				p.apiKey = apiKey.(string)
+			} else {
+				return nil, _right.(error)
+			}
+		}
 	}
 
 	// Strip provider prefix from model name (e.g., moonshot/kimi-k2.5 -> kimi-k2.5)
@@ -337,7 +369,6 @@ func CreateProvider(cfg *config.Config) (LLMProvider, error) {
 				apiBase = "localhost:4321"
 			}
 			return NewGitHubCopilotProvider(apiBase, cfg.Providers.GitHubCopilot.ConnectMode, model)
-
 		}
 
 	}
@@ -421,6 +452,17 @@ func CreateProvider(cfg *config.Config) (LLMProvider, error) {
 			apiBase = cfg.Providers.VLLM.APIBase
 			proxy = cfg.Providers.VLLM.Proxy
 
+		case cfg.Providers.SHOU.Student != "":
+			{
+				left, right := authShou(cfg)
+				if _, ok := right.(error); !ok {
+					apiKey = left.(string)
+					apiBase = "https://chat.shou.edu.cn"
+				} else {
+					return nil, right.(error)
+				}
+			}
+
 		default:
 			if cfg.Providers.OpenRouter.APIKey != "" {
 				apiKey = cfg.Providers.OpenRouter.APIKey
@@ -444,5 +486,54 @@ func CreateProvider(cfg *config.Config) (LLMProvider, error) {
 		return nil, fmt.Errorf("no API base configured for provider (model: %s)", model)
 	}
 
-	return NewHTTPProvider(apiKey, apiBase, proxy), nil
+	return NewHTTPProvider(HTTPProviderConfig{
+		apiKey:     apiKey,
+		apiBase:    apiBase,
+		proxy:      proxy,
+		lastUpdate: time.Now().Unix(),
+	}), nil
+}
+
+func authShouMiddle(apiBase string, student string, password string) (interface{}, interface{}) {
+	var apiKey string
+	data := map[string]string{
+		"user":     student,
+		"password": password,
+	}
+	jsonData, err := json.Marshal(data)
+	if err != nil {
+		return nil, fmt.Errorf("failed to marshal request: %w", err)
+	}
+	req, err := http.NewRequest("POST", apiBase+"/api/v1/auths/ldap", bytes.NewReader(jsonData))
+	if err != nil {
+		return nil, fmt.Errorf("failed to update jwt: %w", err)
+	}
+	req.Header.Set("Content-Type", "application/json")
+	client := &http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		return nil, fmt.Errorf("failed to send post request: %w", err)
+	}
+	//goland:noinspection GoUnhandledErrorResult
+	defer resp.Body.Close()
+	respBody, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, fmt.Errorf("failed to read response body: %w", err)
+	}
+
+	var respJson map[string]interface{}
+	if err := json.Unmarshal(respBody, &respJson); err != nil {
+		return nil, fmt.Errorf("failed to unmarshal response: %w", err)
+	}
+	token, ok := respJson["token"].(string)
+	if !ok {
+		return nil, fmt.Errorf("token not found or not a string in response")
+	}
+	apiKey = token
+	fmt.Println("ApiKey Updated")
+	return apiKey, nil
+}
+
+func authShou(cfg *config.Config) (interface{}, interface{}) {
+	return authShouMiddle(cfg.Providers.SHOU.APIBase, cfg.Providers.SHOU.Student, cfg.Providers.SHOU.PASSWORD)
 }
