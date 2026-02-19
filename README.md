@@ -3,7 +3,7 @@
 <br>并包括有全自动续期 JWT 的功能
 <br>此项目为个人修改
 <br>相关责任和`上海海洋大学`与[PicoClaw](https://github.com/sipeed/picoclaw)官方并无其它关系
-<br>[使用教程请看这里](https://github.com/starwindv/picoPico-shou/blob/shou/SHOUUsage.md)
+<br>[使用教程请看这里](https://github.com/starwindv/PicoClaw-shou/blob/shou/SHOUUsage.md)
 
 
 <div align="center">
