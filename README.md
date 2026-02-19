@@ -1,16 +1,17 @@
 此仓库新增了非官方的
-<br>对上海海洋大学AIAPI的支持
+<br>对上海海洋大学 AI API 的支持
 <br>并包括有全自动续期 JWT 的功能
 <br>此项目为个人修改
 <br>相关责任和`上海海洋大学`与[PicoClaw](https://github.com/sipeed/picoclaw)官方并无其它关系
+<br>[使用教程请看这里](./SHOUUsage.md)
 
 
 <div align="center">
-  <img src="assets/logo.jpg" alt="PicoClaw" width="512">
+<img src="assets/logo.jpg" alt="PicoClaw" width="512">
 
-  <h1>PicoClaw: Ultra-Efficient AI Assistant in Go</h1>
+<h1>PicoClaw: 基于Go语言的超高效 AI 助手</h1>
 
-  <h3>$10 Hardware · 10MB RAM · 1s Boot · 皮皮虾，我们走！</h3>
+<h3>10$硬件 · 10MB内存 · 1秒启动 · 皮皮虾，我们走！</h3>
 
   <p>
     <img src="https://img.shields.io/badge/Go-1.21+-00ADD8?style=flat&logo=go&logoColor=white" alt="Go">
@@ -21,107 +22,109 @@
     <a href="https://x.com/SipeedIO"><img src="https://img.shields.io/badge/X_(Twitter)-SipeedIO-black?style=flat&logo=x&logoColor=white" alt="Twitter"></a>
   </p>
 
- [中文](README.zh.md) | [日本語](README.ja.md) | **English**
+ **中文** | [日本語](README.ja.md) | [English](README.md)
 </div>
 
 ---
 
-🦐 PicoClaw is an ultra-lightweight personal AI Assistant inspired by [nanobot](https://github.com/HKUDS/nanobot), refactored from the ground up in Go through a self-bootstrapping process, where the AI agent itself drove the entire architectural migration and code optimization.
+🦐 **PicoClaw** 是一个受 [nanobot](https://github.com/HKUDS/nanobot) 启发的超轻量级个人 AI 助手。它采用 **Go 语言** 从零重构，经历了一个“自举”过程——即由 AI Agent 自身驱动了整个架构迁移和代码优化。
 
-⚡️ Runs on $10 hardware with <10MB RAM: That's 99% less memory than OpenClaw and 98% cheaper than a Mac mini!
+⚡️ **极致轻量**：可在 **10 美元** 的硬件上运行，内存占用 **<10MB**。这意味着比 OpenClaw 节省 99% 的内存，比 Mac mini 便宜 98%！
 
 <table align="center">
-  <tr align="center">
-    <td align="center" valign="top">
-      <p align="center">
-        <img src="assets/picoclaw_mem.gif" width="360" height="240">
-      </p>
-    </td>
-    <td align="center" valign="top">
-      <p align="center">
-        <img src="assets/licheervnano.png" width="400" height="240">
-      </p>
-    </td>
-  </tr>
+<tr align="center">
+<td align="center" valign="top">
+<p align="center">
+<img src="assets/picoclaw_mem.gif" width="360" height="240">
+</p>
+</td>
+<td align="center" valign="top">
+<p align="center">
+<img src="assets/licheervnano.png" width="400" height="240">
+</p>
+</td>
+</tr>
 </table>
+
+注意：人手有限，中文文档可能略有滞后，请优先查看英文文档。
 
 > [!CAUTION]
 > **🚨 SECURITY & OFFICIAL CHANNELS / 安全声明**
->
-> * **NO CRYPTO:** PicoClaw has **NO** official token/coin. All claims on `pump.fun` or other trading platforms are **SCAMS**.
-> * **OFFICIAL DOMAIN:** The **ONLY** official website is **[picoclaw.io](https://picoclaw.io)**, and company website is **[sipeed.com](https://sipeed.com)**
-> * **Warning:** Many `.ai/.org/.com/.net/...` domains are registered by third parties.
-> * **Warning:** picoclaw is in early development now and may have unresolved network security issues. Do not deploy to production environments before the v1.0 release.
+> * **无加密货币 (NO CRYPTO):** PicoClaw **没有** 发行任何官方代币、Token 或虚拟货币。所有在 `pump.fun` 或其他交易平台上的相关声称均为 **诈骗**。
+> * **官方域名:** 唯一的官方网站是 **[picoclaw.io](https://picoclaw.io)**，公司官网是 **[sipeed.com](https://sipeed.com)**。
+> * **警惕:** 许多 `.ai/.org/.com/.net/...` 后缀的域名被第三方抢注，请勿轻信。
+> * **注意:** picoclaw正在初期的快速功能开发阶段，可能有尚未修复的网络安全问题，在1.0正式版发布前，请不要将其部署到生产环境中
 
-## 📢 News
 
-2026-02-13 🎉 PicoClaw hit 5000 stars in 4days! Thank you for the community! There are so many PRs&issues come in (during Chinese New Year holidays), we are finalizing the Project Roadmap and setting up the Developer Group to accelerate PicoClaw's development.  
-🚀 Call to Action: Please submit your feature requests in GitHub Discussions. We will review and prioritize them during our upcoming weekly meeting.
+## 📢 新闻 (News)
 
-2026-02-09 🎉 PicoClaw Launched! Built in 1 day to bring AI Agents to $10 hardware with <10MB RAM. 🦐 PicoClaw，Let's Go！
+2026-02-13 🎉 **PicoClaw 在 4 天内突破 5000 Stars！** 感谢社区的支持！由于正值中国春节假期，PR 和 Issue 涌入较多，我们正在利用这段时间敲定 **项目路线图 (Roadmap)** 并组建 **开发者群组**，以便加速 PicoClaw 的开发。
+🚀 **行动号召：** 请在 GitHub Discussions 中提交您的功能请求 (Feature Requests)。我们将在接下来的周会上进行审查和优先级排序。
 
-## ✨ Features
+2026-02-09 🎉 **PicoClaw 正式发布！** 仅用 1 天构建，旨在将 AI Agent 带入 10 美元硬件与 <10MB 内存的世界。🦐 PicoClaw（皮皮虾），我们走！
 
-🪶 **Ultra-Lightweight**: <10MB Memory footprint — 99% smaller than Clawdbot - core functionality.
+## ✨ 特性
 
-💰 **Minimal Cost**: Efficient enough to run on $10 Hardware — 98% cheaper than a Mac mini.
+🪶 **超轻量级**: 核心功能内存占用 <10MB — 比 Clawdbot 小 99%。
 
-⚡️ **Lightning Fast**: 400X Faster startup time, boot in 1 second even in 0.6GHz single core.
+💰 **极低成本**: 高效到足以在 10 美元的硬件上运行 — 比 Mac mini 便宜 98%。
 
-🌍 **True Portability**: Single self-contained binary across RISC-V, ARM, and x86, One-click to Go!
+⚡️ **闪电启动**: 启动速度快 400 倍，即使在 0.6GHz 单核处理器上也能在 1 秒内启动。
 
-🤖 **AI-Bootstrapped**: Autonomous Go-native implementation — 95% Agent-generated core with human-in-the-loop refinement.
+🌍 **真正可移植**: 跨 RISC-V、ARM 和 x86 架构的单二进制文件，一键运行！
 
-|                               | OpenClaw      | NanoBot                  | **PicoClaw**                              |
-| ----------------------------- | ------------- | ------------------------ | ----------------------------------------- |
-| **Language**                  | TypeScript    | Python                   | **Go**                                    |
-| **RAM**                       | >1GB          | >100MB                   | **< 10MB**                                |
-| **Startup**</br>(0.8GHz core) | >500s         | >30s                     | **<1s**                                   |
-| **Cost**                      | Mac Mini 599$ | Most Linux SBC </br>~50$ | **Any Linux Board**</br>**As low as 10$** |
+🤖 **AI 自举**: 纯 Go 语言原生实现 — 95% 的核心代码由 Agent 生成，并经由“人机回环 (Human-in-the-loop)”微调。
+
+|                            | OpenClaw      | NanoBot            | **PicoClaw**                    |
+|----------------------------|---------------|--------------------|---------------------------------|
+| **语言**                     | TypeScript    | Python             | **Go**                          |
+| **RAM**                    | >1GB          | >100MB             | **< 10MB**                      |
+| **启动时间**</br>(0.8GHz core) | >500s         | >30s               | **<1s**                         |
+| **成本**                     | Mac Mini $599 | 大多数 Linux 开发板 ~$50 | **任意 Linux 开发板**</br>**低至 $10** |
 
 <img src="assets/compare.jpg" alt="PicoClaw" width="512">
 
-## 🦾 Demonstration
+## 🦾 演示
 
-### 🛠️ Standard Assistant Workflows
+### 🛠️ 标准助手工作流
 
 <table align="center">
-  <tr align="center">
-    <th><p align="center">🧩 Full-Stack Engineer</p></th>
-    <th><p align="center">🗂️ Logging & Planning Management</p></th>
-    <th><p align="center">🔎 Web Search & Learning</p></th>
-  </tr>
-  <tr>
-    <td align="center"><p align="center"><img src="assets/picoclaw_code.gif" width="240" height="180"></p></td>
-    <td align="center"><p align="center"><img src="assets/picoclaw_memory.gif" width="240" height="180"></p></td>
-    <td align="center"><p align="center"><img src="assets/picoclaw_search.gif" width="240" height="180"></p></td>
-  </tr>
-  <tr>
-    <td align="center">Develop • Deploy • Scale</td>
-    <td align="center">Schedule • Automate • Memory</td>
-    <td align="center">Discovery • Insights • Trends</td>
-  </tr>
+<tr align="center">
+<th><p align="center">🧩 全栈工程师模式</p></th>
+<th><p align="center">🗂️ 日志与规划管理</p></th>
+<th><p align="center">🔎 网络搜索与学习</p></th>
+</tr>
+<tr>
+<td align="center"><p align="center"><img src="assets/picoclaw_code.gif" width="240" height="180"></p></td>
+<td align="center"><p align="center"><img src="assets/picoclaw_memory.gif" width="240" height="180"></p></td>
+<td align="center"><p align="center"><img src="assets/picoclaw_search.gif" width="240" height="180"></p></td>
+</tr>
+<tr>
+<td align="center">开发 • 部署 • 扩展</td>
+<td align="center">日程 • 自动化 • 记忆</td>
+<td align="center">发现 • 洞察 • 趋势</td>
+</tr>
 </table>
 
-### 🐜 Innovative Low-Footprint Deploy
+### 🐜 创新的低占用部署
 
-PicoClaw can be deployed on almost any Linux device!
+PicoClaw 几乎可以部署在任何 Linux 设备上！
 
-- $9.9 [LicheeRV-Nano](https://www.aliexpress.com/item/1005006519668532.html) E(Ethernet) or W(WiFi6) version, for Minimal Home Assistant
-- $30~50 [NanoKVM](https://www.aliexpress.com/item/1005007369816019.html), or $100 [NanoKVM-Pro](https://www.aliexpress.com/item/1005010048471263.html) for Automated Server Maintenance
-- $50 [MaixCAM](https://www.aliexpress.com/item/1005008053333693.html) or $100 [MaixCAM2](https://www.kickstarter.com/projects/zepan/maixcam2-build-your-next-gen-4k-ai-camera) for Smart Monitoring
+* $9.9 [LicheeRV-Nano](https://www.aliexpress.com/item/1005006519668532.html) E(网口) 或 W(WiFi6) 版本，用于极简家庭助手。
+* $30~50 [NanoKVM](https://www.aliexpress.com/item/1005007369816019.html)，或 $100 [NanoKVM-Pro](https://www.aliexpress.com/item/1005010048471263.html)，用于自动化服务器运维。
+* $50 [MaixCAM](https://www.aliexpress.com/item/1005008053333693.html) 或 $100 [MaixCAM2](https://www.kickstarter.com/projects/zepan/maixcam2-build-your-next-gen-4k-ai-camera)，用于智能监控。
 
-<https://private-user-images.githubusercontent.com/83055338/547056448-e7b031ff-d6f5-4468-bcca-5726b6fecb5c.mp4>
+[https://private-user-images.githubusercontent.com/83055338/547056448-e7b031ff-d6f5-4468-bcca-5726b6fecb5c.mp4](https://private-user-images.githubusercontent.com/83055338/547056448-e7b031ff-d6f5-4468-bcca-5726b6fecb5c.mp4)
 
-🌟 More Deployment Cases Await！
+🌟 更多部署案例敬请期待！
 
-## 📦 Install
+## 📦 安装
 
-### Install with precompiled binary
+### 使用预编译二进制文件安装
 
-Download the firmware for your platform from the [release](https://github.com/sipeed/picoclaw/releases) page.
+从 [Release 页面](https://github.com/sipeed/picoclaw/releases) 下载适用于您平台的固件。
 
-### Install from source (latest features, recommended for development)
+### 从源码安装（获取最新特性，开发推荐）
 
 ```bash
 git clone https://github.com/sipeed/picoclaw.git
@@ -129,70 +132,75 @@ git clone https://github.com/sipeed/picoclaw.git
 cd picoclaw
 make deps
 
-# Build, no need to install
+# 构建（无需安装）
 make build
 
-# Build for multiple platforms
+# 为多平台构建
 make build-all
 
-# Build And Install
+# 构建并安装
 make install
+
 ```
 
 ## 🐳 Docker Compose
 
-You can also run PicoClaw using Docker Compose without installing anything locally.
+您也可以使用 Docker Compose 运行 PicoClaw，无需在本地安装任何环境。
 
 ```bash
-# 1. Clone this repo
+# 1. 克隆仓库
 git clone https://github.com/sipeed/picoclaw.git
 cd picoclaw
 
-# 2. Set your API keys
+# 2. 设置 API Key
 cp config/config.example.json config/config.json
-vim config/config.json      # Set DISCORD_BOT_TOKEN, API keys, etc.
+vim config/config.json      # 设置 DISCORD_BOT_TOKEN, API keys 等
 
-# 3. Build & Start
+# 3. 构建并启动
 docker compose --profile gateway up -d
 
-# 4. Check logs
+# 4. 查看日志
 docker compose logs -f picoclaw-gateway
 
-# 5. Stop
+# 5. 停止
 docker compose --profile gateway down
+
 ```
 
-### Agent Mode (One-shot)
+### Agent 模式 (一次性运行)
 
 ```bash
-# Ask a question
-docker compose run --rm picoclaw-agent -m "What is 2+2?"
+# 提问
+docker compose run --rm picoclaw-agent -m "2+2 等于几？"
 
-# Interactive mode
+# 交互模式
 docker compose run --rm picoclaw-agent
+
 ```
 
-### Rebuild
+### 重新构建
 
 ```bash
 docker compose --profile gateway build --no-cache
 docker compose --profile gateway up -d
+
 ```
 
-### 🚀 Quick Start
+### 🚀 快速开始
 
 > [!TIP]
-> Set your API key in `~/.picoclaw/config.json`.
-> Get API keys: [OpenRouter](https://openrouter.ai/keys) (LLM) · [Zhipu](https://open.bigmodel.cn/usercenter/proj-mgmt/apikeys) (LLM)
-> Web search is **optional** - get free [Brave Search API](https://brave.com/search/api) (2000 free queries/month) or use built-in auto fallback.
+> 在 `~/.picoclaw/config.json` 中设置您的 API Key。
+> 获取 API Key: [OpenRouter](https://openrouter.ai/keys) (LLM) · [Zhipu (智谱)](https://open.bigmodel.cn/usercenter/proj-mgmt/apikeys) (LLM)
+> 网络搜索是 **可选的** - 获取免费的 [Brave Search API](https://brave.com/search/api) (每月 2000 次免费查询)
 
-**1. Initialize**
+**1. 初始化 (Initialize)**
 
 ```bash
 picoclaw onboard
+
 ```
 
-**2. Configure** (`~/.picoclaw/config.json`)
+**2. 配置 (Configure)** (`~/.picoclaw/config.json`)
 
 ```json
 {
@@ -213,59 +221,55 @@ picoclaw onboard
   },
   "tools": {
     "web": {
-      "brave": {
-        "enabled": false,
+      "search": {
         "api_key": "YOUR_BRAVE_API_KEY",
-        "max_results": 5
-      },
-      "duckduckgo": {
-        "enabled": true,
         "max_results": 5
       }
     }
   }
 }
+
 ```
 
-**3. Get API Keys**
+**3. 获取 API Key**
 
-* **LLM Provider**: [OpenRouter](https://openrouter.ai/keys) · [Zhipu](https://open.bigmodel.cn/usercenter/proj-mgmt/apikeys) · [Anthropic](https://console.anthropic.com) · [OpenAI](https://platform.openai.com) · [Gemini](https://aistudio.google.com/api-keys)
-* **Web Search** (optional): [Brave Search](https://brave.com/search/api) - Free tier available (2000 requests/month)
+* **LLM 提供商**: [OpenRouter](https://openrouter.ai/keys) · [Zhipu](https://open.bigmodel.cn/usercenter/proj-mgmt/apikeys) · [Anthropic](https://console.anthropic.com) · [OpenAI](https://platform.openai.com) · [Gemini](https://aistudio.google.com/api-keys)
+* **网络搜索** (可选): [Brave Search](https://brave.com/search/api) - 提供免费层级 (2000 请求/月)
 
-> **Note**: See `config.example.json` for a complete configuration template.
+> **注意**: 完整的配置模板请参考 `config.example.json`。
 
-**4. Chat**
+**4. 对话 (Chat)**
 
 ```bash
-picoclaw agent -m "What is 2+2?"
+picoclaw agent -m "2+2 等于几？"
+
 ```
 
-That's it! You have a working AI assistant in 2 minutes.
+就是这样！您在 2 分钟内就拥有了一个可工作的 AI 助手。
 
 ---
 
-## 💬 Chat Apps
+## 💬 聊天应用集成 (Chat Apps)
 
-Talk to your picoclaw through Telegram, Discord, DingTalk, or LINE
+通过 Telegram, Discord 或钉钉与您的 PicoClaw 对话。
 
-| Channel      | Setup                              |
-| ------------ | ---------------------------------- |
-| **Telegram** | Easy (just a token)                |
-| **Discord**  | Easy (bot token + intents)         |
-| **QQ**       | Easy (AppID + AppSecret)           |
-| **DingTalk** | Medium (app credentials)           |
-| **LINE**     | Medium (credentials + webhook URL) |
+| 渠道                | 设置难度                     |
+|-------------------|--------------------------|
+| **Telegram**      | 简单 (仅需 token)            |
+| **Discord**       | 简单 (bot token + intents) |
+| **QQ**            | 简单 (AppID + AppSecret)   |
+| **钉钉 (DingTalk)** | 中等 (app credentials)     |
 
 <details>
-<summary><b>Telegram</b> (Recommended)</summary>
+<summary><b>Telegram</b> (推荐)</summary>
 
-**1. Create a bot**
+**1. 创建机器人**
 
-* Open Telegram, search `@BotFather`
-* Send `/newbot`, follow prompts
-* Copy the token
+* 打开 Telegram，搜索 `@BotFather`
+* 发送 `/newbot`，按照提示操作
+* 复制 token
 
-**2. Configure**
+**2. 配置**
 
 ```json
 {
@@ -277,14 +281,16 @@ Talk to your picoclaw through Telegram, Discord, DingTalk, or LINE
     }
   }
 }
+
 ```
 
-> Get your user ID from `@userinfobot` on Telegram.
+> 从 Telegram 上的 `@userinfobot` 获取您的用户 ID。
 
-**3. Run**
+**3. 运行**
 
 ```bash
 picoclaw gateway
+
 ```
 
 </details>
@@ -292,23 +298,23 @@ picoclaw gateway
 <details>
 <summary><b>Discord</b></summary>
 
-**1. Create a bot**
+**1. 创建机器人**
 
-* Go to <https://discord.com/developers/applications>
+* 前往 [https://discord.com/developers/applications](https://discord.com/developers/applications)
 * Create an application → Bot → Add Bot
-* Copy the bot token
+* 复制 bot token
 
-**2. Enable intents**
+**2. 开启 Intents**
 
-* In the Bot settings, enable **MESSAGE CONTENT INTENT**
-* (Optional) Enable **SERVER MEMBERS INTENT** if you plan to use allow lists based on member data
+* 在 Bot 设置中，开启 **MESSAGE CONTENT INTENT**
+* (可选) 如果计划基于成员数据使用白名单，开启 **SERVER MEMBERS INTENT**
 
-**3. Get your User ID**
+**3. 获取您的 User ID**
 
-* Discord Settings → Advanced → enable **Developer Mode**
-* Right-click your avatar → **Copy User ID**
+* Discord 设置 → Advanced → 开启 **Developer Mode**
+* 右键点击您的头像 → **Copy User ID**
 
-**4. Configure**
+**4. 配置**
 
 ```json
 {
@@ -320,19 +326,21 @@ picoclaw gateway
     }
   }
 }
+
 ```
 
-**5. Invite the bot**
+**5. 邀请机器人**
 
 * OAuth2 → URL Generator
 * Scopes: `bot`
 * Bot Permissions: `Send Messages`, `Read Message History`
-* Open the generated invite URL and add the bot to your server
+* 打开生成的邀请 URL，将机器人添加到您的服务器
 
-**6. Run**
+**6. 运行**
 
 ```bash
 picoclaw gateway
+
 ```
 
 </details>
@@ -340,12 +348,12 @@ picoclaw gateway
 <details>
 <summary><b>QQ</b></summary>
 
-**1. Create a bot**
+**1. 创建机器人**
 
-- Go to [QQ Open Platform](https://q.qq.com/#)
-- Create an application → Get **AppID** and **AppSecret**
+* 前往 [QQ 开放平台](https://q.qq.com/#)
+* 创建应用 → 获取 **AppID** 和 **AppSecret**
 
-**2. Configure**
+**2. 配置**
 
 ```json
 {
@@ -358,28 +366,30 @@ picoclaw gateway
     }
   }
 }
+
 ```
 
-> Set `allow_from` to empty to allow all users, or specify QQ numbers to restrict access.
+> 将 `allow_from` 设为空以允许所有用户，或指定 QQ 号以限制访问。
 
-**3. Run**
+**3. 运行**
 
 ```bash
 picoclaw gateway
+
 ```
 
 </details>
 
 <details>
-<summary><b>DingTalk</b></summary>
+<summary><b>钉钉 (DingTalk)</b></summary>
 
-**1. Create a bot**
+**1. 创建机器人**
 
-* Go to [Open Platform](https://open.dingtalk.com/)
-* Create an internal app
-* Copy Client ID and Client Secret
+* 前往 [开放平台](https://open.dingtalk.com/)
+* 创建内部应用
+* 复制 Client ID 和 Client Secret
 
-**2. Configure**
+**2. 配置**
 
 ```json
 {
@@ -392,194 +402,53 @@ picoclaw gateway
     }
   }
 }
+
 ```
 
-> Set `allow_from` to empty to allow all users, or specify QQ numbers to restrict access.
+> 将 `allow_from` 设为空以允许所有用户，或指定 ID 以限制访问。
 
-**3. Run**
+**3. 运行**
 
 ```bash
 picoclaw gateway
+
 ```
 
 </details>
 
-<details>
-<summary><b>LINE</b></summary>
+## <img src="assets/clawdchat-icon.png" width="24" height="24" alt="ClawdChat"> 加入 Agent 社交网络
 
-**1. Create a LINE Official Account**
+只需通过 CLI 或任何集成的聊天应用发送一条消息，即可将 PicoClaw 连接到 Agent 社交网络。
 
-- Go to [LINE Developers Console](https://developers.line.biz/)
-- Create a provider → Create a Messaging API channel
-- Copy **Channel Secret** and **Channel Access Token**
+**阅读 `https://clawdchat.ai/skill.md` 并按照说明加入 [ClawdChat.ai**](https://clawdchat.ai)
 
-**2. Configure**
+## ⚙️ 配置详解
 
-```json
-{
-  "channels": {
-    "line": {
-      "enabled": true,
-      "channel_secret": "YOUR_CHANNEL_SECRET",
-      "channel_access_token": "YOUR_CHANNEL_ACCESS_TOKEN",
-      "webhook_host": "0.0.0.0",
-      "webhook_port": 18791,
-      "webhook_path": "/webhook/line",
-      "allow_from": []
-    }
-  }
-}
-```
+配置文件路径: `~/.picoclaw/config.json`
 
-**3. Set up Webhook URL**
+### 工作区布局 (Workspace Layout)
 
-LINE requires HTTPS for webhooks. Use a reverse proxy or tunnel:
-
-```bash
-# Example with ngrok
-ngrok http 18791
-```
-
-Then set the Webhook URL in LINE Developers Console to `https://your-domain/webhook/line` and enable **Use webhook**.
-
-**4. Run**
-
-```bash
-picoclaw gateway
-```
-
-> In group chats, the bot responds only when @mentioned. Replies quote the original message.
-
-> **Docker Compose**: Add `ports: ["18791:18791"]` to the `picoclaw-gateway` service to expose the webhook port.
-
-</details>
-
-## <img src="assets/clawdchat-icon.png" width="24" height="24" alt="ClawdChat"> Join the Agent Social Network
-
-Connect Picoclaw to the Agent Social Network simply by sending a single message via the CLI or any integrated Chat App.
-
-**Read `https://clawdchat.ai/skill.md` and follow the instructions to join [ClawdChat.ai](https://clawdchat.ai)**
-
-## ⚙️ Configuration
-
-Config file: `~/.picoclaw/config.json`
-
-### Workspace Layout
-
-PicoClaw stores data in your configured workspace (default: `~/.picoclaw/workspace`):
+PicoClaw 将数据存储在您配置的工作区中（默认：`~/.picoclaw/workspace`）：
 
 ```
 ~/.picoclaw/workspace/
-├── sessions/          # Conversation sessions and history
-├── memory/           # Long-term memory (MEMORY.md)
-├── state/            # Persistent state (last channel, etc.)
-├── cron/             # Scheduled jobs database
-├── skills/           # Custom skills
-├── AGENTS.md         # Agent behavior guide
-├── HEARTBEAT.md      # Periodic task prompts (checked every 30 min)
-├── IDENTITY.md       # Agent identity
-├── SOUL.md           # Agent soul
-├── TOOLS.md          # Tool descriptions
-└── USER.md           # User preferences
-```
-
-### 🔒 Security Sandbox
-
-PicoClaw runs in a sandboxed environment by default. The agent can only access files and execute commands within the configured workspace.
-
-#### Default Configuration
-
-```json
-{
-  "agents": {
-    "defaults": {
-      "workspace": "~/.picoclaw/workspace",
-      "restrict_to_workspace": true
-    }
-  }
-}
-```
-
-| Option | Default | Description |
-|--------|---------|-------------|
-| `workspace` | `~/.picoclaw/workspace` | Working directory for the agent |
-| `restrict_to_workspace` | `true` | Restrict file/command access to workspace |
-
-#### Protected Tools
-
-When `restrict_to_workspace: true`, the following tools are sandboxed:
-
-| Tool | Function | Restriction |
-|------|----------|-------------|
-| `read_file` | Read files | Only files within workspace |
-| `write_file` | Write files | Only files within workspace |
-| `list_dir` | List directories | Only directories within workspace |
-| `edit_file` | Edit files | Only files within workspace |
-| `append_file` | Append to files | Only files within workspace |
-| `exec` | Execute commands | Command paths must be within workspace |
-
-#### Additional Exec Protection
-
-Even with `restrict_to_workspace: false`, the `exec` tool blocks these dangerous commands:
-
-* `rm -rf`, `del /f`, `rmdir /s` — Bulk deletion
-* `format`, `mkfs`, `diskpart` — Disk formatting
-* `dd if=` — Disk imaging
-* Writing to `/dev/sd[a-z]` — Direct disk writes
-* `shutdown`, `reboot`, `poweroff` — System shutdown
-* Fork bomb `:(){ :|:& };:`
-
-#### Error Examples
+├── sessions/          # 对话会话和历史
+├── memory/           # 长期记忆 (MEMORY.md)
+├── state/            # 持久化状态 (最后一次频道等)
+├── cron/             # 定时任务数据库
+├── skills/           # 自定义技能
+├── AGENTS.md         # Agent 行为指南
+├── HEARTBEAT.md      # 周期性任务提示词 (每 30 分钟检查一次)
+├── IDENTITY.md       # Agent 身份设定
+├── SOUL.md           # Agent 灵魂/性格
+├── TOOLS.md          # 工具描述
+└── USER.md           # 用户偏好
 
 ```
-[ERROR] tool: Tool execution failed
-{tool=exec, error=Command blocked by safety guard (path outside working dir)}
-```
 
-```
-[ERROR] tool: Tool execution failed
-{tool=exec, error=Command blocked by safety guard (dangerous pattern detected)}
-```
+### 心跳 / 周期性任务 (Heartbeat)
 
-#### Disabling Restrictions (Security Risk)
-
-If you need the agent to access paths outside the workspace:
-
-**Method 1: Config file**
-
-```json
-{
-  "agents": {
-    "defaults": {
-      "restrict_to_workspace": false
-    }
-  }
-}
-```
-
-**Method 2: Environment variable**
-
-```bash
-export PICOCLAW_AGENTS_DEFAULTS_RESTRICT_TO_WORKSPACE=false
-```
-
-> ⚠️ **Warning**: Disabling this restriction allows the agent to access any path on your system. Use with caution in controlled environments only.
-
-#### Security Boundary Consistency
-
-The `restrict_to_workspace` setting applies consistently across all execution paths:
-
-| Execution Path | Security Boundary |
-|----------------|-------------------|
-| Main Agent | `restrict_to_workspace` ✅ |
-| Subagent / Spawn | Inherits same restriction ✅ |
-| Heartbeat tasks | Inherits same restriction ✅ |
-
-All paths share the same workspace restriction — there's no way to bypass the security boundary through subagents or scheduled tasks.
-
-### Heartbeat (Periodic Tasks)
-
-PicoClaw can perform periodic tasks automatically. Create a `HEARTBEAT.md` file in your workspace:
+PicoClaw 可以自动执行周期性任务。在工作区创建 `HEARTBEAT.md` 文件：
 
 ```markdown
 # Periodic Tasks
@@ -587,13 +456,14 @@ PicoClaw can perform periodic tasks automatically. Create a `HEARTBEAT.md` file 
 - Check my email for important messages
 - Review my calendar for upcoming events
 - Check the weather forecast
+
 ```
 
-The agent will read this file every 30 minutes (configurable) and execute any tasks using available tools.
+Agent 将每隔 30 分钟（可配置）读取此文件，并使用可用工具执行任务。
 
-#### Async Tasks with Spawn
+#### 使用 Spawn 的异步任务
 
-For long-running tasks (web search, API calls), use the `spawn` tool to create a **subagent**:
+对于耗时较长的任务（网络搜索、API 调用），使用 `spawn` 工具创建一个 **子 Agent (subagent)**：
 
 ```markdown
 # Periodic Tasks
@@ -604,36 +474,38 @@ For long-running tasks (web search, API calls), use the `spawn` tool to create a
 ## Long Tasks (use spawn for async)
 - Search the web for AI news and summarize
 - Check email and report important messages
-```
-
-**Key behaviors:**
-
-| Feature | Description |
-|---------|-------------|
-| **spawn** | Creates async subagent, doesn't block heartbeat |
-| **Independent context** | Subagent has its own context, no session history |
-| **message tool** | Subagent communicates with user directly via message tool |
-| **Non-blocking** | After spawning, heartbeat continues to next task |
-
-#### How Subagent Communication Works
 
 ```
-Heartbeat triggers
+
+**关键行为：**
+
+| 特性               | 描述                           |
+|------------------|------------------------------|
+| **spawn**        | 创建异步子 Agent，不阻塞主心跳进程         |
+| **独立上下文**        | 子 Agent 拥有独立上下文，无会话历史        |
+| **message tool** | 子 Agent 通过 message 工具直接与用户通信 |
+| **非阻塞**          | spawn 后，心跳继续处理下一个任务          |
+
+#### 子 Agent 通信原理
+
+```
+心跳触发 (Heartbeat triggers)
     ↓
-Agent reads HEARTBEAT.md
+Agent 读取 HEARTBEAT.md
     ↓
-For long task: spawn subagent
+对于长任务: spawn 子 Agent
     ↓                           ↓
-Continue to next task      Subagent works independently
+继续下一个任务               子 Agent 独立工作
     ↓                           ↓
-All tasks done            Subagent uses "message" tool
+所有任务完成                 子 Agent 使用 "message" 工具
     ↓                           ↓
-Respond HEARTBEAT_OK      User receives result directly
+响应 HEARTBEAT_OK            用户直接收到结果
+
 ```
 
-The subagent has access to tools (message, web_search, etc.) and can communicate with the user independently without going through the main agent.
+子 Agent 可以访问工具（message, web_search 等），并且无需通过主 Agent 即可独立与用户通信。
 
-**Configuration:**
+**配置：**
 
 ```json
 {
@@ -642,41 +514,42 @@ The subagent has access to tools (message, web_search, etc.) and can communicate
     "interval": 30
   }
 }
+
 ```
 
-| Option | Default | Description |
-|--------|---------|-------------|
-| `enabled` | `true` | Enable/disable heartbeat |
-| `interval` | `30` | Check interval in minutes (min: 5) |
+| 选项         | 默认值    | 描述                |
+|------------|--------|-------------------|
+| `enabled`  | `true` | 启用/禁用心跳           |
+| `interval` | `30`   | 检查间隔，单位分钟 (最小: 5) |
 
-**Environment variables:**
+**环境变量:**
 
-* `PICOCLAW_HEARTBEAT_ENABLED=false` to disable
-* `PICOCLAW_HEARTBEAT_INTERVAL=60` to change interval
+* `PICOCLAW_HEARTBEAT_ENABLED=false` 禁用
+* `PICOCLAW_HEARTBEAT_INTERVAL=60` 更改间隔
 
-### Providers
+### 提供商 (Providers)
 
 > [!NOTE]
-> Groq provides free voice transcription via Whisper. If configured, Telegram voice messages will be automatically transcribed.
+> Groq 通过 Whisper 提供免费的语音转录。如果配置了 Groq，Telegram 语音消息将被自动转录为文字。
 
-| Provider                   | Purpose                                 | Get API Key                                            |
-| -------------------------- | --------------------------------------- | ------------------------------------------------------ |
-| `gemini`                   | LLM (Gemini direct)                     | [aistudio.google.com](https://aistudio.google.com)     |
-| `zhipu`                    | LLM (Zhipu direct)                      | [bigmodel.cn](bigmodel.cn)                             |
-| `openrouter(To be tested)` | LLM (recommended, access to all models) | [openrouter.ai](https://openrouter.ai)                 |
-| `anthropic(To be tested)`  | LLM (Claude direct)                     | [console.anthropic.com](https://console.anthropic.com) |
-| `openai(To be tested)`     | LLM (GPT direct)                        | [platform.openai.com](https://platform.openai.com)     |
-| `deepseek(To be tested)`   | LLM (DeepSeek direct)                   | [platform.deepseek.com](https://platform.deepseek.com) |
-| `groq`                     | LLM + **Voice transcription** (Whisper) | [console.groq.com](https://console.groq.com)           |
+| 提供商               | 用途                       | 获取 API Key                                             |
+|-------------------|--------------------------|--------------------------------------------------------|
+| `gemini`          | LLM (Gemini 直连)          | [aistudio.google.com](https://aistudio.google.com)     |
+| `zhipu`           | LLM (智谱直连)               | [bigmodel.cn](bigmodel.cn)                             |
+| `openrouter(待测试)` | LLM (推荐，可访问所有模型)         | [openrouter.ai](https://openrouter.ai)                 |
+| `anthropic(待测试)`  | LLM (Claude 直连)          | [console.anthropic.com](https://console.anthropic.com) |
+| `openai(待测试)`     | LLM (GPT 直连)             | [platform.openai.com](https://platform.openai.com)     |
+| `deepseek(待测试)`   | LLM (DeepSeek 直连)        | [platform.deepseek.com](https://platform.deepseek.com) |
+| `groq`            | LLM + **语音转录** (Whisper) | [console.groq.com](https://console.groq.com)           |
 
 <details>
-<summary><b>Zhipu</b></summary>
+<summary><b>智谱 (Zhipu) 配置示例</b></summary>
 
-**1. Get API key and base URL**
+**1. 获取 API key 和 base URL**
 
-* Get [API key](https://bigmodel.cn/usercenter/proj-mgmt/apikeys)
+* 获取 [API key](https://bigmodel.cn/usercenter/proj-mgmt/apikeys)
 
-**2. Configure**
+**2. 配置**
 
 ```json
 {
@@ -693,21 +566,23 @@ The subagent has access to tools (message, web_search, etc.) and can communicate
     "zhipu": {
       "api_key": "Your API Key",
       "api_base": "https://open.bigmodel.cn/api/paas/v4"
-    }
-  }
+    },
+  },
 }
+
 ```
 
-**3. Run**
+**3. 运行**
 
 ```bash
-picoclaw agent -m "Hello"
+picoclaw agent -m "你好"
+
 ```
 
 </details>
 
 <details>
-<summary><b>Full config example</b></summary>
+<summary><b>完整配置示例</b></summary>
 
 ```json
 {
@@ -755,14 +630,8 @@ picoclaw agent -m "Hello"
   },
   "tools": {
     "web": {
-      "brave": {
-        "enabled": false,
-        "api_key": "BSA...",
-        "max_results": 5
-      },
-      "duckduckgo": {
-        "enabled": true,
-        "max_results": 5
+      "search": {
+        "api_key": "BSA..."
       }
     }
   },
@@ -771,92 +640,88 @@ picoclaw agent -m "Hello"
     "interval": 30
   }
 }
+
 ```
 
 </details>
 
-## CLI Reference
+## CLI 命令行参考
 
-| Command                   | Description                   |
-| ------------------------- | ----------------------------- |
-| `picoclaw onboard`        | Initialize config & workspace |
-| `picoclaw agent -m "..."` | Chat with the agent           |
-| `picoclaw agent`          | Interactive chat mode         |
-| `picoclaw gateway`        | Start the gateway             |
-| `picoclaw status`         | Show status                   |
-| `picoclaw cron list`      | List all scheduled jobs       |
-| `picoclaw cron add ...`   | Add a scheduled job           |
+| 命令 | 描述 |
+| --- | --- |
+| `picoclaw onboard` | 初始化配置和工作区 |
+| `picoclaw agent -m "..."` | 与 Agent 对话 |
+| `picoclaw agent` | 交互式聊天模式 |
+| `picoclaw gateway` | 启动网关 (Gateway) |
+| `picoclaw status` | 显示状态 |
+| `picoclaw cron list` | 列出所有定时任务 |
+| `picoclaw cron add ...` | 添加定时任务 |
 
-### Scheduled Tasks / Reminders
+### 定时任务 / 提醒 (Scheduled Tasks)
 
-PicoClaw supports scheduled reminders and recurring tasks through the `cron` tool:
+PicoClaw 通过 `cron` 工具支持定时提醒和重复任务：
 
-* **One-time reminders**: "Remind me in 10 minutes" → triggers once after 10min
-* **Recurring tasks**: "Remind me every 2 hours" → triggers every 2 hours
-* **Cron expressions**: "Remind me at 9am daily" → uses cron expression
+* **一次性提醒**: "Remind me in 10 minutes" (10分钟后提醒我) → 10分钟后触发一次
+* **重复任务**: "Remind me every 2 hours" (每2小时提醒我) → 每2小时触发
+* **Cron 表达式**: "Remind me at 9am daily" (每天上午9点提醒我) → 使用 cron 表达式
 
-Jobs are stored in `~/.picoclaw/workspace/cron/` and processed automatically.
+任务存储在 `~/.picoclaw/workspace/cron/` 中并自动处理。
 
-## 🤝 Contribute & Roadmap
+## 🤝 贡献与路线图 (Roadmap)
 
-PRs welcome! The codebase is intentionally small and readable. 🤗
+欢迎提交 PR！代码库刻意保持小巧和可读。🤗
 
-Roadmap coming soon...
+路线图即将发布...
 
-Developer group building, Entry Requirement: At least 1 Merged PR.
+开发者群组正在组建中，入群门槛：至少合并过 1 个 PR。
 
-User Groups:
+用户群组：
 
-discord:  <https://discord.gg/V4sAZ9XWpN>
+Discord:  [https://discord.gg/V4sAZ9XWpN](https://discord.gg/V4sAZ9XWpN)
 
 <img src="assets/wechat.png" alt="PicoClaw" width="512">
 
-## 🐛 Troubleshooting
+## 🐛 疑难解答 (Troubleshooting)
 
-### Web search says "API 配置问题"
+### 网络搜索提示 "API 配置问题"
 
-This is normal if you haven't configured a search API key yet. PicoClaw will provide helpful links for manual searching.
+如果您尚未配置搜索 API Key，这是正常的。PicoClaw 会提供手动搜索的帮助链接。
 
-To enable web search:
+启用网络搜索：
 
-1. **Option 1 (Recommended)**: Get a free API key at [https://brave.com/search/api](https://brave.com/search/api) (2000 free queries/month) for the best results.
-2. **Option 2 (No Credit Card)**: If you don't have a key, we automatically fall back to **DuckDuckGo** (no key required).
-
-Add the key to `~/.picoclaw/config.json` if using Brave:
-
+1. 在 [https://brave.com/search/api](https://brave.com/search/api) 获取免费 API Key (每月 2000 次免费查询)
+2. 添加到 `~/.picoclaw/config.json`:
 ```json
 {
   "tools": {
     "web": {
-      "brave": {
-        "enabled": false,
+      "search": {
         "api_key": "YOUR_BRAVE_API_KEY",
-        "max_results": 5
-      },
-      "duckduckgo": {
-        "enabled": true,
         "max_results": 5
       }
     }
   }
 }
+
 ```
 
-### Getting content filtering errors
 
-Some providers (like Zhipu) have content filtering. Try rephrasing your query or use a different model.
 
-### Telegram bot says "Conflict: terminated by other getUpdates"
+### 遇到内容过滤错误 (Content Filtering Errors)
 
-This happens when another instance of the bot is running. Make sure only one `picoclaw gateway` is running at a time.
+某些提供商（如智谱）有严格的内容过滤。尝试改写您的问题或使用其他模型。
+
+### Telegram bot 提示 "Conflict: terminated by other getUpdates"
+
+这表示有另一个机器人实例正在运行。请确保同一时间只有一个 `picoclaw gateway` 进程在运行。
 
 ---
 
-## 📝 API Key Comparison
+## 📝 API Key 对比
 
-| Service          | Free Tier           | Use Case                              |
-| ---------------- | ------------------- | ------------------------------------- |
-| **OpenRouter**   | 200K tokens/month   | Multiple models (Claude, GPT-4, etc.) |
-| **Zhipu**        | 200K tokens/month   | Best for Chinese users                |
-| **Brave Search** | 2000 queries/month  | Web search functionality              |
-| **Groq**         | Free tier available | Fast inference (Llama, Mixtral)       |
+| 服务 | 免费层级 | 适用场景 |
+| --- | --- | --- |
+| **OpenRouter** | 200K tokens/月 | 多模型聚合 (Claude, GPT-4 等) |
+| **智谱 (Zhipu)** | 200K tokens/月 | 最适合中国用户 |
+| **Brave Search** | 2000 次查询/月 | 网络搜索功能 |
+| **Groq** | 提供免费层级 | 极速推理 (Llama, Mixtral) |
