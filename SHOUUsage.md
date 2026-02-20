@@ -118,4 +118,23 @@ Start-Process -FilePath $command -ArgumentList $arguments -WindowStyle Hidden
 ## 7. 注意事项
 最后, 决定服务在线时长的也就只有`Easy Connect`的在线时长(它会自动掉线)和电脑网络状态了
 
+## 8. 可用模型
+根据学校 API 返回的数据, 实际可用的模型如下:
+```plaintext
+DeepSeek-V3.1
+DeepSeek-V3
+Qwen2.5-VL-72B-Instruct # 实为 Qwen3-VL-30B-A3B-Instruct
+deepseek_r1_thinkfix.DeepSeek-R1
+eduChat-32B
+glm-4.6
+```
+<br>之所以名称和[学校前端](https://chat.shou.edu.cn)有出入
+<br>是因为原始数据里存在`modelName`和`model`两个不同的字段
+<br>某些前端展示所展示的模型如`glm-4.7`实际上是`glm-4.6`改了个名字
+<br>实际调用的模型仍然是`glm-4.6`
+<br>只需要在配置文件里填写上面的任意一个模型即可, 推荐`DeepSeek-V3`
+>注意, 截止此二改项目立项时, 学校的`DeepSeek-V3.1`服务仍处于报错状态
+> 且当时的前端也不能正确获取消息
+> 合理怀疑是学校服务器故障导致的
+
 其它关于`picoclaw`本身的教程, 请参见[原项目教程](https://github.com/sipeed/picoclaw/README.zh.md)

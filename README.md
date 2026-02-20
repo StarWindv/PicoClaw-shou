@@ -647,15 +647,15 @@ picoclaw agent -m "你好"
 
 ## CLI 命令行参考
 
-| 命令 | 描述 |
-| --- | --- |
-| `picoclaw onboard` | 初始化配置和工作区 |
-| `picoclaw agent -m "..."` | 与 Agent 对话 |
-| `picoclaw agent` | 交互式聊天模式 |
-| `picoclaw gateway` | 启动网关 (Gateway) |
-| `picoclaw status` | 显示状态 |
-| `picoclaw cron list` | 列出所有定时任务 |
-| `picoclaw cron add ...` | 添加定时任务 |
+| 命令                        | 描述             |
+|---------------------------|----------------|
+| `picoclaw onboard`        | 初始化配置和工作区      |
+| `picoclaw agent -m "..."` | 与 Agent 对话     |
+| `picoclaw agent`          | 交互式聊天模式        |
+| `picoclaw gateway`        | 启动网关 (Gateway) |
+| `picoclaw status`         | 显示状态           |
+| `picoclaw cron list`      | 列出所有定时任务       |
+| `picoclaw cron add ...`   | 添加定时任务         |
 
 ### 定时任务 / 提醒 (Scheduled Tasks)
 
@@ -719,10 +719,10 @@ Discord:  [https://discord.gg/V4sAZ9XWpN](https://discord.gg/V4sAZ9XWpN)
 
 ## 📝 API Key 对比
 
-| 服务 | 免费层级 | 适用场景 |
-| --- | --- | --- |
-| **OpenRouter** | 200K tokens/月 | 多模型聚合 (Claude, GPT-4 等) |
-| **智谱 (Zhipu)** | 200K tokens/月 | 最适合中国用户 |
-| **Brave Search** | 2000 次查询/月 | 网络搜索功能 |
-| **Groq** | 提供免费层级 | 极速推理 (Llama, Mixtral) |
+| 服务               | 免费层级          | 适用场景                    |
+|------------------|---------------|-------------------------|
+| **OpenRouter**   | 200K tokens/月 | 多模型聚合 (Claude, GPT-4 等) |
+| **智谱 (Zhipu)**   | 200K tokens/月 | 最适合中国用户                 |
+| **Brave Search** | 2000 次查询/月    | 网络搜索功能                  |
+| **Groq**         | 提供免费层级        | 极速推理 (Llama, Mixtral)   |
 
