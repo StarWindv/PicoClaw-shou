@@ -21,24 +21,6 @@ import (
 	"github.com/sipeed/picoclaw/pkg/config"
 )
 
-type HTTPProvider struct {
-	apiKey     string
-	apiBase    string
-	student    string
-	password   string
-	httpClient *http.Client
-	lastUpdate int64
-}
-
-type HTTPProviderConfig struct {
-	apiKey     string
-	apiBase    string
-	proxy      string
-	student    string
-	password   string
-	lastUpdate int64
-}
-
 func NewHTTPProvider(cfg HTTPProviderConfig) *HTTPProvider {
 	client := &http.Client{
 		Timeout: 120 * time.Second,
@@ -52,13 +34,14 @@ func NewHTTPProvider(cfg HTTPProviderConfig) *HTTPProvider {
 			}
 		}
 	}
-	var student, passwd string
-	if cfg.student == "" {
-		student = ""
+	var student, passwd = "", ""
+	if cfg.student != "" {
+		student = cfg.student
 	}
-	if cfg.password == "" {
-		passwd = ""
+	if cfg.password != "" {
+		passwd = cfg.password
 	}
+
 	return &HTTPProvider{
 		apiKey:     cfg.apiKey,
 		apiBase:    strings.TrimRight(cfg.apiBase, "/"),
@@ -80,15 +63,9 @@ func (p *HTTPProvider) Chat(
 		return nil, fmt.Errorf("API base not configured")
 	}
 
-	if strings.Contains(p.apiBase, "chat.shou.edu.cn") {
-		if (time.Now().Unix() - p.lastUpdate) > 82800 {
-			apiKey, _right := authShouMiddle(p.apiBase, p.student, p.password)
-			if _, ok := _right.(error); !ok {
-				p.apiKey = apiKey.(string)
-			} else {
-				return nil, _right.(error)
-			}
-		}
+	err := refreshJWTBeforeChat(p)
+	if err != nil {
+		return nil, err
 	}
 
 	// Strip provider prefix from model name (e.g., moonshot/kimi-k2.5 -> kimi-k2.5)
@@ -485,55 +462,18 @@ func CreateProvider(cfg *config.Config) (LLMProvider, error) {
 	if apiBase == "" {
 		return nil, fmt.Errorf("no API base configured for provider (model: %s)", model)
 	}
+	var student, password = "", ""
+	if cfg.Providers.SHOU.Student != "" {
+		student = cfg.Providers.SHOU.Student
+		password = cfg.Providers.SHOU.PASSWORD
+	}
 
 	return NewHTTPProvider(HTTPProviderConfig{
 		apiKey:     apiKey,
 		apiBase:    apiBase,
+		student:    student,
+		password:   password,
 		proxy:      proxy,
 		lastUpdate: time.Now().Unix(),
 	}), nil
-}
-
-func authShouMiddle(apiBase string, student string, password string) (interface{}, interface{}) {
-	var apiKey string
-	data := map[string]string{
-		"user":     student,
-		"password": password,
-	}
-	jsonData, err := json.Marshal(data)
-	if err != nil {
-		return nil, fmt.Errorf("failed to marshal request: %w", err)
-	}
-	req, err := http.NewRequest("POST", apiBase+"/api/v1/auths/ldap", bytes.NewReader(jsonData))
-	if err != nil {
-		return nil, fmt.Errorf("failed to update jwt: %w", err)
-	}
-	req.Header.Set("Content-Type", "application/json")
-	client := &http.Client{}
-	resp, err := client.Do(req)
-	if err != nil {
-		return nil, fmt.Errorf("failed to send post request: %w", err)
-	}
-	//goland:noinspection GoUnhandledErrorResult
-	defer resp.Body.Close()
-	respBody, err := io.ReadAll(resp.Body)
-	if err != nil {
-		return nil, fmt.Errorf("failed to read response body: %w", err)
-	}
-
-	var respJson map[string]interface{}
-	if err := json.Unmarshal(respBody, &respJson); err != nil {
-		return nil, fmt.Errorf("failed to unmarshal response: %w", err)
-	}
-	token, ok := respJson["token"].(string)
-	if !ok {
-		return nil, fmt.Errorf("token not found or not a string in response")
-	}
-	apiKey = token
-	fmt.Println("ApiKey Updated")
-	return apiKey, nil
-}
-
-func authShou(cfg *config.Config) (interface{}, interface{}) {
-	return authShouMiddle(cfg.Providers.SHOU.APIBase, cfg.Providers.SHOU.Student, cfg.Providers.SHOU.PASSWORD)
 }
